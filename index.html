@@ -35,14 +35,17 @@
     <section class="block" id="whoami" data-cmd="whoami">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">whoami</span></p>
       <h1 class="name">Hayoub Mouffok</h1>
+      <p class="role">J'automatise les infrastructures avec des pipelines CI/CD et de l'infrastructure as code, je les administre et je les sécurise, du routage au serveur.</p>
       <div class="fetch">
-<pre class="logo" aria-hidden="true"> _   _  __  __
-| | | ||  \/  |
-| |_| || |\/| |
-|  _  || |  | |
-|_| |_||_|  |_|
-
- <span class="sw a"></span><span class="sw b"></span><span class="sw c"></span><span class="sw d"></span></pre>
+        <svg class="emblem" viewBox="0 0 200 200" aria-hidden="true">
+          <polygon class="hex" points="100,8 180,54 180,146 100,192 20,146 20,54"/>
+          <polygon class="hex in" points="100,30 161,65 161,135 100,170 39,135 39,65"/>
+          <g class="spokes"><line x1="100" y1="100" x2="100" y2="48"/><line x1="100" y1="100" x2="146" y2="124"/><line x1="100" y1="100" x2="54" y2="124"/><line x1="100" y1="100" x2="146" y2="76"/></g>
+          <circle class="n c-cloud" cx="100" cy="48" r="9"/><circle class="n c-net" cx="146" cy="124" r="9"/>
+          <circle class="n c-sys" cx="54" cy="124" r="9"/><circle class="n c-sec" cx="146" cy="76" r="9"/>
+          <circle class="core" cx="100" cy="100" r="21"/>
+          <text x="100" y="108" text-anchor="middle">HM</text>
+        </svg>
         <dl class="info">
           <dt>rôle</dt><dd>Ingénieur DevOps, systèmes, réseaux et cybersécurité</dd>
           <dt>uptime</dt><dd>3 ans et demi en entreprise, Redpill puis CNAM</dd>
@@ -54,7 +57,6 @@
           <dt>statut</dt><dd class="ok"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</dd>
         </dl>
       </div>
-      <p class="role">J'automatise les infrastructures avec des pipelines CI/CD et de l'infrastructure as code, je les administre et je les sécurise, du routage au serveur.</p>
       <p class="hint">Tapez une commande, cliquez en bas de l'écran ou appuyez sur <kbd>1</kbd> à <kbd>4</kbd>. <kbd>help</kbd> liste tout.</p>
     </section>
 
@@ -154,15 +156,14 @@
 
     <section class="block" id="stack" data-cmd="stack">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">cat stack.yaml</span></p>
-      <dl class="yaml">
-        <dt>devops:</dt><dd>Docker, Kubernetes, Helm, Argo CD, Terraform, Ansible, GitLab CI, Jenkins, GitHub Actions, AWS</dd>
-        <dt>reseaux:</dt><dd>TCP/IP, routage et commutation, VLAN, BGP, OSPF, EVPN-VXLAN, VPN (OpenVPN), téléphonie IP</dd>
-        <dt>systemes:</dt><dd>Linux (Debian, Ubuntu), Windows Server, Active Directory, Azure AD, VMware</dd>
-        <dt>securite:</dt><dd>segmentation réseau, Zero Trust, HashiCorp Vault, Falco, KubeArmor, Kyverno, Trivy</dd>
-        <dt>supervision:</dt><dd>Prometheus, Grafana, ELK, Zabbix, Nagios</dd>
-        <dt>scripts:</dt><dd>Python, Bash, PowerShell</dd>
-        <dt>langues:</dt><dd>français, anglais (B2)</dd>
-      </dl>
+      <pre class="file" data-name="stack.yaml"><span class="ln"> 1</span><span class="k">hayoub</span>:
+<span class="ln"> 2</span>  <span class="k">devops</span>: <span class="v">[Docker, Kubernetes, Helm, Argo CD, Terraform, Ansible, GitLab CI, Jenkins, GitHub Actions, AWS]</span>
+<span class="ln"> 3</span>  <span class="k">reseaux</span>: <span class="v">[TCP/IP, routage et commutation, VLAN, BGP, OSPF, EVPN-VXLAN, VPN (OpenVPN), téléphonie IP]</span>
+<span class="ln"> 4</span>  <span class="k">systemes</span>: <span class="v">[Linux (Debian, Ubuntu), Windows Server, Active Directory, Azure AD, VMware]</span>
+<span class="ln"> 5</span>  <span class="k">securite</span>: <span class="v">[segmentation réseau, Zero Trust, HashiCorp Vault, Falco, KubeArmor, Kyverno, Trivy]</span>
+<span class="ln"> 6</span>  <span class="k">supervision</span>: <span class="v">[Prometheus, Grafana, ELK, Zabbix, Nagios]</span>
+<span class="ln"> 7</span>  <span class="k">scripts</span>: <span class="v">[Python, Bash, PowerShell]</span>
+<span class="ln"> 8</span>  <span class="k">langues</span>: <span class="v">[français, anglais (B2)]</span></pre>
     </section>
 
     <section class="block" id="contact" data-cmd="contact">

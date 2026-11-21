@@ -156,7 +156,6 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
   .chips button kbd{display:none}
   .chips button{padding:4px 12px}
   .prompt{gap:6px 0;padding-top:8px;padding-bottom:8px}
-  .logo{display:none}
 }
 
 @media (min-width:1400px){body{font-size:16.5px}.name{font-size:124px}}
@@ -174,7 +173,7 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
 .info dt::after{content:":";color:var(--dim)}
 .info dd{margin:0}
 .info dd.ok{display:flex;align-items:center;gap:9px}
-.role{color:var(--dim);font-size:15.5px}
+.role{color:var(--paper);opacity:.82;font-size:17px;max-width:64ch;margin:-6px 0 26px!important}
 
 /* --- Projets en panneaux --- */
 .proj{border:1px solid var(--rule);border-radius:8px;padding:0 24px 18px;margin:0 0 28px;background:rgba(13,22,40,.55)}
@@ -211,3 +210,36 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
 .proj.acc-net{border-top:2px solid var(--c-net)} .proj.acc-sec{border-top:2px solid var(--c-sec)} .proj.acc-cloud{border-top:2px solid var(--c-cloud)}
 ::selection{background:rgba(255,179,71,.3);color:var(--paper)}
 
+
+/* Emblème : Hayoub au centre, relié à ses quatre domaines */
+.fetch{grid-template-columns:170px 1fr;align-items:center}
+.emblem{width:170px;height:170px;display:block}
+.emblem .hex{fill:none;stroke:rgba(255,179,71,.55);stroke-width:1.5}
+.emblem .hex.in{stroke:rgba(122,150,200,.25);stroke-dasharray:3 5}
+.emblem .spokes line{stroke:rgba(122,150,200,.45);stroke-width:1.5}
+.emblem .n{stroke:var(--ink);stroke-width:3}
+.emblem .n.c-net{fill:var(--c-net)}.emblem .n.c-cloud{fill:var(--c-cloud)}.emblem .n.c-sec{fill:var(--c-sec)}.emblem .n.c-sys{fill:var(--c-sys)}
+.emblem .core{fill:#1b2a47;stroke:var(--amber);stroke-width:1.5}
+.emblem text{font-family:"VT323",monospace;font-size:25px;fill:var(--amber)}
+@media (prefers-reduced-motion:no-preference){
+  .emblem .n{animation:node 6s ease-in-out infinite}
+  .emblem .n.c-net{animation-delay:1.5s}.emblem .n.c-sec{animation-delay:3s}.emblem .n.c-sys{animation-delay:4.5s}
+}
+@keyframes node{0%,85%,100%{opacity:1}92%{opacity:.35}}
+
+/* git log --graph */
+.gitlog{position:relative;padding-left:26px}
+.gitlog::before{content:"";position:absolute;left:6px;top:10px;bottom:24px;border-left:2px solid var(--rule)}
+.gitlog li{position:relative}
+.gitlog li::before{content:"";position:absolute;left:-25px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--ink);border:2px solid var(--amber)}
+.gitlog li:first-child::before{background:var(--amber);box-shadow:0 0 10px rgba(255,179,71,.6)}
+
+/* Fichier avec numéros de ligne */
+.file{position:relative;margin:0;padding:34px 18px 14px 0;border:1px solid var(--rule);border-radius:8px;background:rgba(10,18,34,.7);
+  font:inherit;font-size:14px;line-height:1.8;white-space:pre-wrap;overflow-x:auto}
+.file::before{content:attr(data-name);position:absolute;top:0;left:0;right:0;padding:5px 14px;font-size:12px;color:var(--dim);
+  border-bottom:1px solid var(--rule);background:rgba(10,18,34,.9);border-radius:8px 8px 0 0}
+.file .ln{display:inline-block;width:3.2em;padding-right:1em;margin-right:1em;text-align:right;color:#3e4c68;border-right:1px solid var(--rule);user-select:none}
+.file .k{color:var(--amber)}
+.file .v{color:var(--paper)}
+@media (max-width:760px){.fetch{grid-template-columns:1fr}.emblem{width:110px;height:110px}.gitlog{padding-left:20px}.file{font-size:12.5px}}
