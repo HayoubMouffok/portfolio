@@ -203,3 +203,30 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
   .pane{margin:0 -16px 14px}
   .pane .live{display:none}
 }
+
+/* --- Trois mini-panneaux : réseau, cloud, cyber --- */
+.panes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 22px}
+.mini{border:1px solid var(--rule);border-radius:8px;background:rgba(10,18,34,.75);padding:12px 14px;font-size:12.5px;display:flex;flex-direction:column;gap:10px;min-height:150px}
+.mini-t{color:var(--dim)}
+.mini-t b{font-weight:600;margin-right:6px}
+.mini.net .mini-t b{color:var(--link)} .mini.cloud .mini-t b{color:var(--amber)} .mini.cyber .mini-t b{color:#ff8a7a}
+.mini-f{color:var(--dim);margin-top:auto}
+.bars{display:flex;align-items:flex-end;gap:3px;height:58px}
+.bars i{flex:1;background:linear-gradient(180deg,var(--link),rgba(127,216,204,.25));border-radius:2px 2px 0 0;transition:height .9s ease}
+.pods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.pods li{font-size:11px;text-align:center;padding:4px 0;border-radius:4px;background:rgba(155,227,143,.1);border:1px solid rgba(155,227,143,.35);color:var(--ok);overflow:hidden;text-overflow:ellipsis}
+.ids{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;font-size:11.5px;min-height:58px}
+.ids li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:on .4s ease-out}
+.ids .blk{color:#ff8a7a} .ids .alw{color:var(--dim)}
+
+/* Étiquettes de domaine */
+.dom{display:inline-block;font-size:11px;line-height:1;padding:3px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;border:1px solid}
+.d-net{color:var(--link);border-color:rgba(127,216,204,.45)}
+.d-cloud{color:var(--amber);border-color:rgba(255,179,71,.45)}
+.d-sec{color:#ff8a7a;border-color:rgba(255,138,122,.45)}
+.d-sys{color:#b9a7ff;border-color:rgba(185,167,255,.45)}
+.pane .dom:first-of-type{margin-left:10px}
+.gitlog b .dom,.gitlog .dom{font-weight:400}
+::selection{background:rgba(255,179,71,.3);color:var(--paper)}
+
+@media (max-width:900px){.panes{grid-template-columns:1fr}.mini{min-height:0}}
