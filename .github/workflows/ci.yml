@@ -1,0 +1,14 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validation HTML
+        run: npx --yes html-validate@9 index.html
+      - name: Vérification des liens
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --exclude linkedin.com index.html
+          fail: true
