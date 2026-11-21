@@ -15,6 +15,7 @@
 <script src="app.js" defer></script>
 </head>
 <body>
+<canvas id="topo" aria-hidden="true"></canvas>
 <div class="crt" aria-hidden="true"></div>
 
 <div class="window">
@@ -165,6 +166,10 @@
         <dt>parcours</dt><dd>mes expériences et ma formation</dd>
         <dt>stack</dt><dd>les outils que j'utilise</dd>
         <dt>contact</dt><dd>me joindre ou télécharger mon CV</dd>
+        <dt>nmap hayoub</dt><dd>scanner mes compétences</dd>
+        <dt>traceroute hayoub</dt><dd>suivre mon parcours, saut par saut</dd>
+        <dt>ping recruteur</dt><dd>vérifier que je réponds</dd>
+        <dt>kubectl get nodes</dt><dd>mes domaines, vus comme un cluster</dd>
         <dt>clear</dt><dd>vider l'écran</dd>
       </dl>
     </section>
@@ -180,8 +185,16 @@
       <button type="button" data-run="parcours">parcours</button>
       <button type="button" data-run="stack">stack</button>
       <button type="button" data-run="contact">contact</button>
+      <button type="button" data-run="nmap hayoub">nmap</button>
+      <button type="button" data-run="traceroute hayoub">traceroute</button>
     </div>
   </form>
+  <div class="statusbar" role="status" aria-label="État du laboratoire">
+    <span class="seg net"><b>net</b> BGP 4/4 établies · <span id="sb-ping">ping 12 ms</span></span>
+    <span class="seg cloud"><b>cloud</b> pods 8/8 Running</span>
+    <span class="seg sec"><b>sec</b> 6/6 attaques bloquées</span>
+    <span class="seg clock" id="sb-clock" aria-hidden="true"></span>
+  </div>
 </div>
 
 <footer class="foot">Site statique, sans dépendance, servi avec des en-têtes de sécurité stricts (CSP, HSTS). Chaque modification est vérifiée automatiquement puis déployée par Netlify. <a href="https://github.com/HayoubMouffok/portfolio" rel="noopener">Code source</a></footer>

@@ -127,3 +127,24 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
 .diagram .host rect{fill:#0d1628;stroke:#3a4b6d}
 .diagram .tag{fill:var(--ok)}
 .diagram .tag.left{fill:var(--dim)}
+
+/* Fond topologie */
+#topo{position:fixed;inset:0;z-index:0;pointer-events:none}
+.window,.foot{position:relative;z-index:1}
+
+/* Sorties des commandes réseau / sécurité */
+.out{margin:0;font:inherit;font-size:14px;line-height:1.65;white-space:pre-wrap;color:var(--paper);overflow-x:auto}
+.out .ok{color:var(--ok)}
+
+/* Barre d'état façon tmux */
+.statusbar{display:flex;flex-wrap:wrap;gap:0;font-size:12.5px;border-top:1px solid var(--rule);background:#0a1222;color:var(--dim)}
+.statusbar .seg{padding:5px 14px;border-right:1px solid var(--rule);white-space:nowrap}
+.statusbar .seg b{font-weight:600;margin-right:8px}
+.statusbar .net b{color:var(--link)}
+.statusbar .cloud b{color:var(--amber)}
+.statusbar .sec b{color:var(--ok)}
+.statusbar .seg::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:middle}
+.statusbar .sec{border-right:0}
+.statusbar .clock{margin-left:auto;border-right:0;border-left:1px solid var(--rule)}
+.statusbar .clock::before{display:none}
+@media (max-width:640px){.statusbar .seg{flex:1 1 50%;border-right:0}.statusbar .clock{display:none}}
