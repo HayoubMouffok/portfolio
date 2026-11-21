@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Palette : nuit d'encre et signal ambré (sombre), porcelaine et orange brûlé (clair) */
+:root {
+  --bg: #f4f5f7;
+  --bg-2: #eceef2;
+  --surface: #ffffff;
+  --line: #dde1e8;
+  --text: #0c1322;
+  --muted: #5a6475;
+  --accent: #d9480f;
+  --accent-2: #0b7c70;
+  --glow: rgba(217, 72, 15, 0.14);
+  --grid: rgba(12, 19, 34, 0.05);
+}
+.dark {
+  --bg: #090e1a;
+  --bg-2: #0d1424;
+  --surface: #111a2e;
+  --line: #1f2b44;
+  --text: #e9edf4;
+  --muted: #8c98ad;
+  --accent: #ffb347;
+  --accent-2: #5ad2c4;
+  --glow: rgba(255, 179, 71, 0.16);
+  --grid: rgba(233, 237, 244, 0.04);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .4s ease, color .4s ease;
+}
+::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* Grain très léger, qui donne de la matière aux aplats */
+.grain::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: .05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.grid-bg {
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 80%);
+}
+
+.path { font-family: var(--font-mono); font-size: .8125rem; color: var(--muted); }
+.path b { color: var(--accent); font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

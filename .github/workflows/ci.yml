@@ -1,14 +1,21 @@
 name: ci
 on: [push, pull_request]
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validation HTML
-        run: npx --yes html-validate@9 index.html
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Vérification des types
+        run: npx tsc --noEmit
+      - name: Build (export statique)
+        run: npm run build
       - name: Vérification des liens
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --exclude linkedin.com --exclude github.com/HayoubMouffok/portfolio index.html
+          args: --no-progress --offline --root-dir out out/index.html
           fail: true
