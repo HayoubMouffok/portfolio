@@ -205,7 +205,7 @@
   function draw() {
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     ctx.lineWidth = 1;
-    ctx.strokeStyle = "rgba(122,150,200,0.10)";
+    ctx.strokeStyle = "rgba(122,150,200,0.13)";
     edges.forEach(([i, k]) => { ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[k].x, nodes[k].y); ctx.stroke(); });
     nodes.forEach(n => { ctx.fillStyle = n.r > 3 ? "rgba(255,179,71,0.28)" : "rgba(122,150,200,0.22)"; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 7); ctx.fill(); });
     packets.forEach(p => {
