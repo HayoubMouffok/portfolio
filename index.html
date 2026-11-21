@@ -45,6 +45,28 @@
       <article class="proj">
         <h2>Réseau datacenter automatisé</h2>
         <p>Le réseau d'un datacenter moderne en laboratoire : une architecture spine-leaf avec routage BGP et EVPN-VXLAN, redondance des chemins, et des configurations d'équipements générées depuis NetBox, l'inventaire de référence. Chaque modification est reconstruite puis testée automatiquement avant d'être appliquée.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 720 330" role="img" aria-labelledby="fab-t">
+            <title id="fab-t">Topologie : deux spines en AS 65000 reliés en eBGP à deux leafs (AS 65011 et 65012), un tunnel VXLAN VNI 100 entre les leafs qui étend le même réseau entre host1 et host2</title>
+            <g class="lnk">
+              <line x1="190" y1="94" x2="190" y2="190"/><line x1="190" y1="94" x2="530" y2="190"/>
+              <line x1="530" y1="94" x2="190" y2="190"/><line x1="530" y1="94" x2="530" y2="190"/>
+              <line x1="190" y1="238" x2="190" y2="268"/><line x1="530" y1="238" x2="530" y2="268"/>
+            </g>
+            <path class="tunnel" d="M260 222 C 330 250, 390 250, 460 222"/>
+            <text class="tag" x="360" y="262" text-anchor="middle">tunnel VXLAN · VNI 100</text>
+            <g class="node spine"><rect x="120" y="46" width="140" height="48" rx="4"/><text x="190" y="70" text-anchor="middle">spine1</text><text class="sub" x="190" y="86" text-anchor="middle">AS 65000</text></g>
+            <g class="node spine"><rect x="460" y="46" width="140" height="48" rx="4"/><text x="530" y="70" text-anchor="middle">spine2</text><text class="sub" x="530" y="86" text-anchor="middle">AS 65000</text></g>
+            <g class="node"><rect x="120" y="190" width="140" height="48" rx="4"/><text x="190" y="214" text-anchor="middle">leaf1</text><text class="sub" x="190" y="230" text-anchor="middle">AS 65011 · VTEP</text></g>
+            <g class="node"><rect x="460" y="190" width="140" height="48" rx="4"/><text x="530" y="214" text-anchor="middle">leaf2</text><text class="sub" x="530" y="230" text-anchor="middle">AS 65012 · VTEP</text></g>
+            <g class="host"><rect x="130" y="268" width="120" height="40" rx="4"/><text x="190" y="293" text-anchor="middle">host1 .11</text></g>
+            <g class="host"><rect x="470" y="268" width="120" height="40" rx="4"/><text x="530" y="293" text-anchor="middle">host2 .12</text></g>
+            <text class="tag" x="360" y="300" text-anchor="middle">même LAN 10.10.100.0/24</text>
+            <text class="tag left" x="18" y="132">underlay eBGP + ECMP</text>
+            <text class="tag left" x="18" y="150">overlay BGP EVPN</text>
+          </svg>
+          <figcaption>Fabric générée depuis NetBox. À chaque push, la CI la reconstruit et vérifie les sessions BGP et EVPN, l'ECMP via les deux spines et le ping de host1 à host2 à travers le tunnel.</figcaption>
+        </figure>
         <p class="stack">FRRouting, EVPN-VXLAN, NetBox, containerlab, pytest, Robot Framework</p>
         <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
       </article>
@@ -71,6 +93,26 @@
       <article class="proj">
         <h2>Plateforme Kubernetes GitOps</h2>
         <p>Terraform installe Argo CD, qui déploie depuis Git l'application, l'accès HTTPS, la supervision et les règles de sécurité. Chaque modification est testée avant d'arriver sur le cluster.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 720 300" role="img" aria-labelledby="git-t">
+            <title id="git-t">Chaîne GitOps : un git push déclenche la CI (lint, Trivy, tests sur un cluster kind) ; Terraform installe Argo CD, qui synchronise depuis Git cert-manager, ingress-nginx, Kyverno, Prometheus et Grafana, et l'application</title>
+            <g class="lnk arrow">
+              <line x1="138" y1="60" x2="232" y2="60"/><line x1="138" y1="190" x2="232" y2="190"/>
+              <line x1="368" y1="190" x2="450" y2="190"/><line x1="370" y1="190" x2="450" y2="110"/><line x1="370" y1="190" x2="450" y2="270"/>
+              <line x1="368" y1="190" x2="450" y2="150"/><line x1="368" y1="190" x2="450" y2="230"/>
+            </g>
+            <g class="node"><rect x="18" y="36" width="120" height="48" rx="4"/><text x="78" y="66" text-anchor="middle">git push</text></g>
+            <g class="node"><rect x="232" y="30" width="250" height="60" rx="4"/><text x="357" y="56" text-anchor="middle">GitHub Actions</text><text class="sub" x="357" y="74" text-anchor="middle">lint · Trivy · tests sur kind</text></g>
+            <g class="node"><rect x="18" y="166" width="120" height="48" rx="4"/><text x="78" y="196" text-anchor="middle">Terraform</text></g>
+            <g class="node spine"><rect x="232" y="166" width="136" height="48" rx="4"/><text x="300" y="190" text-anchor="middle">Argo CD</text><text class="sub" x="300" y="206" text-anchor="middle">app-of-apps</text></g>
+            <g class="host"><rect x="450" y="94" width="220" height="32" rx="4"/><text x="560" y="115" text-anchor="middle">cert-manager · HTTPS</text></g>
+            <g class="host"><rect x="450" y="134" width="220" height="32" rx="4"/><text x="560" y="155" text-anchor="middle">ingress-nginx</text></g>
+            <g class="host"><rect x="450" y="174" width="220" height="32" rx="4"/><text x="560" y="195" text-anchor="middle">Kyverno · politiques</text></g>
+            <g class="host"><rect x="450" y="214" width="220" height="32" rx="4"/><text x="560" y="235" text-anchor="middle">Prometheus · Grafana</text></g>
+            <g class="host"><rect x="450" y="254" width="220" height="32" rx="4"/><text x="560" y="275" text-anchor="middle">application durcie</text></g>
+          </svg>
+          <figcaption>Tout le cluster est décrit dans Git. Kyverno refuse par exemple une image non versionnée, et la CI vérifie que les huit applications sont synchronisées et que le site répond en HTTPS.</figcaption>
+        </figure>
         <p class="stack">Terraform, Argo CD, Helm, cert-manager, Kyverno, Trivy</p>
         <p><a href="https://github.com/HayoubMouffok/k8s-gitops-platform" rel="noopener">Voir le projet sur GitHub</a></p>
       </article>

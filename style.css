@@ -113,3 +113,17 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
   .led,.typing::after,.reveal{animation:none}
   .log{scroll-behavior:auto}
 }
+
+.diagram{margin:16px 0 14px;padding:14px;border:1px solid var(--rule);border-radius:6px;background:#0d1628}
+.diagram svg{display:block;width:100%;height:auto;font-family:"Plex Mono",ui-monospace,monospace}
+.diagram figcaption{color:var(--dim);font-size:13.5px;margin-top:10px;max-width:72ch}
+.diagram .lnk line{stroke:#3a4b6d;stroke-width:1.5}
+.diagram .tunnel{fill:none;stroke:var(--ok);stroke-width:2;stroke-dasharray:6 6}
+.diagram .node rect{fill:#13203a;stroke:var(--amber);stroke-width:1.2}
+.diagram .node.spine rect{fill:#2a2519}
+.diagram .node text{fill:var(--amber);font-family:"VT323",monospace;font-size:24px}
+.diagram .node text.sub,.diagram .host text,.diagram .tag{font-family:"Plex Mono",monospace;font-size:12px;fill:var(--paper)}
+.diagram .node text.sub{fill:var(--dim)}
+.diagram .host rect{fill:#0d1628;stroke:#3a4b6d}
+.diagram .tag{fill:var(--ok)}
+.diagram .tag.left{fill:var(--dim)}
