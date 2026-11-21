@@ -22,12 +22,16 @@ html{background:var(--ink);color-scheme:dark}
   --faint:#3e4c68;--edge:#3a4b6d;--core:#1b2a47;--spine:#2a2519;--node:#13203a;--rule-soft:rgba(34,50,79,.6);--vignette:rgba(5,9,18,.55);
   --scan:rgba(255,255,255,.025);--key-1:#15223b;--key-2:#0f1a2e;--glowbg:#16264a;--topo-line:rgba(122,150,200,.13);--topo-node:rgba(122,150,200,.22)}
 :root[data-theme="light"]{color-scheme:light;
-  --ink:#e9eef5;--panel:#f6f8fb;--rule:#cfd8e4;--amber:#b4580a;--paper:#1c2533;--dim:#5a6577;--link:#0e7a70;--ok:#2e7d32;
-  --glow:none;--c-net:#0e7a70;--c-cloud:#b4580a;--c-sec:#c0392b;--c-sys:#6b4fd1;
-  --bar:#eef2f7;--bar-2:rgba(238,242,247,.95);--bar-3:#e3e9f1;--surface:rgba(255,255,255,.72);--surface-solid:#ffffff;--win:rgba(246,248,251,.82);
-  --faint:#9aa5b5;--edge:#b7c2d1;--core:#fff4e6;--spine:#fff1df;--node:#ffffff;--rule-soft:rgba(207,216,228,.8);--vignette:rgba(160,175,195,.18);
-  --scan:transparent;--key-1:#ffffff;--key-2:#eef2f7;--glowbg:#dbe5f3;--topo-line:rgba(70,95,140,.14);--topo-node:rgba(70,95,140,.25)}
-:root[data-theme="light"] .name{text-shadow:none}
+  /* Inspiré de Solarized Light, le thème clair de terminal le plus répandu */
+  --ink:#fdf6e3;--panel:#fdf6e3;--rule:#e4dcc4;--amber:#cb4b16;--paper:#073642;--dim:#657b83;--link:#268bd2;--ok:#859900;
+  --glow:none;--c-net:#2aa198;--c-cloud:#b58900;--c-sec:#dc322f;--c-sys:#6c71c4;
+  --bar:#eee8d5;--bar-2:#eee8d5;--bar-3:#e8e1cc;--surface:rgba(238,232,213,.55);--surface-solid:#f7f1de;--win:rgba(253,246,227,.88);
+  --faint:#b9b29c;--edge:#cfc7ae;--core:#fdf6e3;--spine:#f6ead0;--node:#fdf6e3;--rule-soft:rgba(228,220,196,.9);--vignette:transparent;
+  --scan:transparent;--key-1:#fdf6e3;--key-2:#eee8d5;--glowbg:#f3ead2;--topo-line:rgba(101,123,131,.16);--topo-node:rgba(101,123,131,.3)}
+:root[data-theme="light"] .name{text-shadow:none;color:#cb4b16}
+:root[data-theme="light"] .chips button{box-shadow:inset 0 -2px 0 rgba(0,0,0,.06)}
+:root[data-theme="light"] .prow:hover,:root[data-theme="light"] .prow[aria-expanded="true"]{background:rgba(203,75,22,.06)}
+:root[data-theme="light"] .fetch{background:var(--surface)}
 :root[data-theme="light"] .crt{display:none}
 :root[data-theme="light"] .window{box-shadow:none}
 :root[data-theme="light"] .demo{border-color:var(--rule)}
