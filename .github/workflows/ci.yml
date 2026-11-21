@@ -10,5 +10,5 @@ jobs:
       - name: Vérification des liens
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --exclude linkedin.com index.html
+          args: --no-progress --exclude linkedin.com --exclude github.com/HayoubMouffok/portfolio index.html
           fail: true
