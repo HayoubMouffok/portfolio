@@ -34,7 +34,6 @@
     history.push(name); hIndex = history.length;
     if (name === "clear") {
       [...log.children].forEach(c => { if (c.dataset.cmd) c.hidden = true; else if (c.classList.contains("echo")) c.remove(); });
-      document.getElementById("boot").hidden = true;
       return;
     }
     const gen = generators.find(g => g.re.test(name));
@@ -66,7 +65,7 @@
       block.scrollIntoView({ block: "start" });
       await typeInto(c, original, 28);
       await sleep(120);
-      [...block.children].forEach(x => { x.hidden = false; x.classList.add("reveal"); });
+      [...block.children].forEach(x => { if (x.classList.contains("proj")) return; x.hidden = false; x.classList.add("reveal"); });
     }
     block.scrollIntoView({ block: "start" });
   }
@@ -148,6 +147,22 @@
     const b = e.target.closest("button[data-run]");
     if (b) { run(b.dataset.run); input.focus({ preventScroll: true }); }
   });
+  // Projets : liste compacte, détail ouvert au clic (un à la fois).
+  const plist = document.querySelectorAll(".prow");
+  const arts = [...document.querySelectorAll("#projets .proj")];
+  arts.forEach(a => { a.hidden = true; });
+  plist.forEach(btn => btn.addEventListener("click", () => {
+    const target = document.getElementById(btn.dataset.open);
+    const open = target.hidden;
+    arts.forEach(a => { a.hidden = true; });
+    plist.forEach(b => b.setAttribute("aria-expanded", "false"));
+    if (open) {
+      target.hidden = false; target.classList.add("reveal");
+      btn.setAttribute("aria-expanded", "true");
+      target.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+    }
+  }));
+
   const quick = ["projets", "parcours", "stack", "contact"];
   document.addEventListener("keydown", e => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;

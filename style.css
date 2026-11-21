@@ -243,3 +243,20 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
 .file .k{color:var(--amber)}
 .file .v{color:var(--paper)}
 @media (max-width:760px){.fetch{grid-template-columns:1fr}.emblem{width:110px;height:110px}.gitlog{padding-left:20px}.file{font-size:12.5px}}
+
+/* Liste des projets façon ls -l */
+.plist{list-style:none;margin:0 0 8px;padding:0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:rgba(10,18,34,.6)}
+.plist li+li{border-top:1px solid var(--rule)}
+.prow{width:100%;display:grid;grid-template-columns:auto 7ch minmax(0,24ch) 1fr;gap:18px;align-items:baseline;text-align:left;
+  padding:12px 18px;background:transparent;border:0;color:var(--paper);font:inherit;font-size:14.5px;cursor:pointer}
+.prow:hover,.prow[aria-expanded="true"]{background:rgba(255,179,71,.06)}
+.prow .perm{color:#3e4c68}
+.prow .pdom{font-size:13px}
+.pdom.c-net{color:var(--c-net)}.pdom.c-sec{color:var(--c-sec)}.pdom.c-cloud{color:var(--c-cloud)}
+.prow .pname{color:var(--link);font-weight:600}
+.prow[aria-expanded="true"] .pname::before{content:"▸ ";color:var(--amber)}
+.prow .pdesc{color:var(--dim)}
+.phint{font-size:13px;margin:0 0 22px!important}
+.js #projets .proj{margin-top:6px}
+html:not(.js) .phint{display:none}
+@media (max-width:760px){.prow{grid-template-columns:1fr;gap:2px;padding:12px 14px}.prow .perm{display:none}}

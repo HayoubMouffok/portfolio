@@ -8,6 +8,11 @@
 <meta property="og:title" content="Hayoub Mouffok — Ingénieur DevOps, systèmes, réseaux et cybersécurité">
 <meta property="og:description" content="DevOps, systèmes, réseaux et sécurité des infrastructures. Disponible immédiatement en Île-de-France.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://hayoub-mouffok.netlify.app/">
+<meta property="og:image" content="https://hayoub-mouffok.netlify.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/vt323-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
@@ -27,10 +32,6 @@
   </div>
 
   <main id="log" class="log" aria-live="polite">
-
-    <section class="block boot" id="boot" aria-label="Démarrage">
-      <p class="dim">Dernière connexion : aujourd'hui, depuis l'Île-de-France</p>
-    </section>
 
     <section class="block" id="whoami" data-cmd="whoami">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">whoami</span></p>
@@ -57,13 +58,19 @@
           <dt>statut</dt><dd class="ok"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</dd>
         </dl>
       </div>
-      <p class="hint">Tapez une commande, cliquez en bas de l'écran ou appuyez sur <kbd>1</kbd> à <kbd>4</kbd>. <kbd>help</kbd> liste tout.</p>
+      <p class="hint">Naviguez avec les commandes en bas de l'écran, ou les touches <kbd>1</kbd> à <kbd>4</kbd>.</p>
     </section>
 
     <section class="block" id="projets" data-cmd="projets">
-      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">ls projets/</span></p>
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">ls -l projets/</span></p>
+      <ul class="plist">
+        <li><button type="button" class="prow" data-open="p-reseau-datacenter" aria-expanded="false"><span class="perm">drwxr-xr-x</span><span class="pdom c-net">réseau</span><span class="pname">reseau-datacenter/</span><span class="pdesc">Fabric BGP / EVPN-VXLAN générée depuis NetBox, testée à chaque modification</span></button></li>
+        <li><button type="button" class="prow" data-open="p-k8s-reponse-intrusions" aria-expanded="false"><span class="perm">drwxr-xr-x</span><span class="pdom c-sec">cyber</span><span class="pname">k8s-reponse-intrusions/</span><span class="pdesc">Détection et blocage automatiques des attaques : 100 % bloquées en 30 ms</span></button></li>
+        <li><button type="button" class="prow" data-open="p-k8s-gitops" aria-expanded="false"><span class="perm">drwxr-xr-x</span><span class="pdom c-cloud">devops</span><span class="pname">k8s-gitops/</span><span class="pdesc">Cluster entièrement décrit dans Git, déployé par Terraform et Argo CD</span></button></li>
+      </ul>
+      <p class="phint dim">Cliquez sur un projet pour l'ouvrir.</p>
 
-      <article class="proj acc-net">
+      <article class="proj acc-net" id="p-reseau-datacenter">
         <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/reseau-datacenter<span class="live">● sur GitHub</span></div>
         <h2>Réseau datacenter automatisé</h2>
         <p>Le réseau d'un datacenter moderne en laboratoire : une architecture spine-leaf avec routage BGP et EVPN-VXLAN, redondance des chemins, et des configurations d'équipements générées depuis NetBox, l'inventaire de référence. Chaque modification est reconstruite puis testée automatiquement avant d'être appliquée.</p>
@@ -92,7 +99,7 @@
         <p class="stack">FRRouting, EVPN-VXLAN, NetBox, containerlab, pytest, Robot Framework</p>
         <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
       </article>
-      <article class="proj acc-sec">
+      <article class="proj acc-sec" id="p-k8s-reponse-intrusions">
         <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-reponse-intrusions<span class="live">● sur GitHub</span></div>
         <h2>Réponse automatique aux intrusions dans Kubernetes</h2>
         <p>Prolongement de mon mémoire de Master. Falco détecte une attaque dans un conteneur, un orchestrateur Python la classe selon MITRE ATT&amp;CK, puis applique une politique KubeArmor, NetworkPolicy ou Kyverno ciblée sur le seul pod attaqué. Aucune intervention humaine pour les menaces certaines, une validation humaine pour les autres.</p>
@@ -113,7 +120,7 @@
         <p><a href="https://github.com/HayoubMouffok/k8s-adaptive-security-orchestrator" rel="noopener">Lire le code et les résultats sur GitHub</a></p>
       </article>
 
-      <article class="proj acc-cloud">
+      <article class="proj acc-cloud" id="p-k8s-gitops">
         <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-gitops<span class="live">● sur GitHub</span></div>
         <h2>Plateforme Kubernetes GitOps</h2>
         <p>Terraform installe Argo CD, qui déploie depuis Git l'application, l'accès HTTPS, la supervision et les règles de sécurité. Chaque modification est testée avant d'arriver sur le cluster.</p>
