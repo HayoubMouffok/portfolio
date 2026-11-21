@@ -41,6 +41,7 @@
     const gen = generators.find(g => g.re.test(name));
     if (gen) { await printOut(raw.trim(), gen.out()); return; }
     const key = aliases[name] || name;
+    document.querySelectorAll(".chips button").forEach(b => b.classList.toggle("on", b.dataset.run === key));
     const block = blocks[key];
     if (!block) {
       const wrap = document.createElement("section");
