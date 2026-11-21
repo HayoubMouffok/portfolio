@@ -36,6 +36,8 @@
       [...log.children].forEach(c => { if (c.dataset.cmd) c.hidden = true; else if (c.classList.contains("echo")) c.remove(); });
       return;
     }
+    const themeCmd = { jour: "light", light: "light", nuit: "dark", dark: "dark", theme: null }[name];
+    if (themeCmd !== undefined) { setTheme(themeCmd || (doc.dataset.theme === "light" ? "dark" : "light")); return; }
     const gen = generators.find(g => g.re.test(name));
     if (gen) { await printOut(raw.trim(), gen.out()); return; }
     const key = aliases[name] || name;
@@ -163,6 +165,22 @@
     }
   }));
 
+  // Mode jour / nuit
+  const themeBtn = document.getElementById("theme-btn");
+  function syncThemeBtn() {
+    const light = doc.dataset.theme === "light";
+    themeBtn.textContent = light ? "☾ nuit" : "☀ jour";
+    themeBtn.setAttribute("aria-label", light ? "Passer en mode nuit" : "Passer en mode jour");
+  }
+  function setTheme(t) {
+    doc.dataset.theme = t;
+    try { localStorage.setItem("theme", t); } catch (e) { /* stockage indisponible */ }
+    syncThemeBtn();
+    window.dispatchEvent(new Event("themechange"));
+  }
+  themeBtn.addEventListener("click", () => setTheme(doc.dataset.theme === "light" ? "dark" : "light"));
+  syncThemeBtn();
+
   const quick = ["projets", "parcours", "stack", "contact"];
   document.addEventListener("keydown", e => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
@@ -226,9 +244,11 @@
   function draw() {
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     ctx.lineWidth = 1;
-    ctx.strokeStyle = "rgba(122,150,200,0.13)";
+    const css = getComputedStyle(document.documentElement);
+    ctx.strokeStyle = css.getPropertyValue("--topo-line").trim();
     edges.forEach(([i, k]) => { ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[k].x, nodes[k].y); ctx.stroke(); });
-    nodes.forEach(n => { ctx.fillStyle = n.r > 3 ? "rgba(255,179,71,0.28)" : "rgba(122,150,200,0.22)"; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 7); ctx.fill(); });
+    const nodeCol = css.getPropertyValue("--topo-node").trim();
+    nodes.forEach(n => { ctx.fillStyle = n.r > 3 ? "rgba(255,179,71,0.3)" : nodeCol; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 7); ctx.fill(); });
     packets.forEach(p => {
       const [a, b] = [nodes[p.e[0]], nodes[p.e[1]]];
       const x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t;
@@ -255,5 +275,6 @@
 
   build(); draw();
   addEventListener("resize", () => { build(); draw(); });
+  addEventListener("themechange", draw);
   if (!reduce) requestAnimationFrame(loop);
 })();
