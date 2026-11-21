@@ -69,6 +69,7 @@
     block.scrollIntoView({ block: "start" });
   }
 
+  document.querySelector(".cv-quick").addEventListener("click", e => { e.preventDefault(); run("contact"); });
   form.addEventListener("submit", e => { e.preventDefault(); const v = input.value; input.value = ""; run(v); });
   form.addEventListener("click", e => {
     const b = e.target.closest("button[data-run]");

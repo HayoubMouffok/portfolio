@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hayoub Mouffok — Ingénieur DevOps, systèmes et réseaux</title>
-<meta name="description" content="Ingénieur DevOps, systèmes et réseaux en Île-de-France : Kubernetes, CI/CD, Terraform, sécurité des clusters. Disponible immédiatement.">
-<meta property="og:title" content="Hayoub Mouffok — Ingénieur DevOps, systèmes et réseaux">
-<meta property="og:description" content="Kubernetes, CI/CD, infrastructure as code et sécurité des clusters. Disponible immédiatement en Île-de-France.">
+<title>Hayoub Mouffok — Ingénieur systèmes, réseaux et cybersécurité</title>
+<meta name="description" content="Ingénieur systèmes, réseaux et cybersécurité en Île-de-France : Linux, Windows et Active Directory, routage et VPN, sécurité des infrastructures et automatisation. Disponible immédiatement.">
+<meta property="og:title" content="Hayoub Mouffok — Ingénieur systèmes, réseaux et cybersécurité">
+<meta property="og:description" content="Systèmes, réseaux, sécurité des infrastructures et automatisation. Disponible immédiatement en Île-de-France.">
 <meta property="og:type" content="website">
 <link rel="preload" href="assets/fonts/vt323-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,29 +21,35 @@
   <div class="titlebar">
     <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
     <span class="title">hayoub@k8s-lab: ~</span>
-    <a class="cv-quick" href="assets/CV_Hayoub_Mouffok.pdf" download>Télécharger le CV</a>
+    <a class="cv-quick" href="#contact" data-run="contact">Mes CV</a>
   </div>
 
   <main id="log" class="log" aria-live="polite">
 
     <section class="block boot" id="boot" aria-label="Démarrage">
-      <p class="dim">Ubuntu 24.04 LTS, k3s, Falco, KubeArmor, Kyverno</p>
+      <p class="dim">Master Réseaux et Objets Connectés (CNAM), formation Cisco CCNA 2</p>
       <p class="dim">Dernière connexion : aujourd'hui, depuis l'Île-de-France</p>
     </section>
 
     <section class="block" id="whoami" data-cmd="whoami">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">whoami</span></p>
       <h1 class="name">Hayoub Mouffok</h1>
-      <p class="role">Ingénieur DevOps, systèmes et réseaux. J'automatise l'infrastructure, je la sécurise, et je mesure ce que je mets en production.</p>
+      <p class="role">Ingénieur systèmes, réseaux et cybersécurité. J'administre et je sécurise les infrastructures, du routage au serveur, et j'automatise tout ce qui se répète.</p>
       <p class="status"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</p>
       <p class="hint">Tapez une commande, ou cliquez sur l'une d'elles en bas de l'écran. <kbd>help</kbd> les liste toutes.</p>
     </section>
 
     <section class="block" id="projets" data-cmd="projets">
-      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">kubectl get projets</span></p>
+      <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">ls projets/</span></p>
 
       <article class="proj">
-        <h2>Orchestrateur de sécurité adaptative Kubernetes</h2>
+        <h2>Réseau datacenter automatisé</h2>
+        <p>Le réseau d'un datacenter moderne en laboratoire : une architecture spine-leaf avec routage BGP et EVPN-VXLAN, redondance des chemins, et des configurations d'équipements générées depuis NetBox, l'inventaire de référence. Chaque modification est reconstruite puis testée automatiquement avant d'être appliquée.</p>
+        <p class="stack">FRRouting, EVPN-VXLAN, NetBox, containerlab, pytest, Robot Framework</p>
+        <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
+      </article>
+      <article class="proj">
+        <h2>Réponse automatique aux intrusions dans Kubernetes</h2>
         <p>Prolongement de mon mémoire de Master. Falco détecte une attaque dans un conteneur, un orchestrateur Python la classe selon MITRE ATT&amp;CK, puis applique une politique KubeArmor, NetworkPolicy ou Kyverno ciblée sur le seul pod attaqué. Aucune intervention humaine pour les menaces certaines, une validation humaine pour les autres.</p>
         <div class="table-wrap">
           <table>
@@ -69,12 +75,6 @@
         <p><a href="https://github.com/HayoubMouffok/k8s-gitops-platform" rel="noopener">Voir le projet sur GitHub</a></p>
       </article>
 
-      <article class="proj">
-        <h2>Réseau datacenter automatisé</h2>
-        <p>Une fabric spine-leaf BGP et EVPN-VXLAN dont les configurations sont générées en Python depuis NetBox, puis reconstruites et testées à chaque modification.</p>
-        <p class="stack">FRRouting, EVPN-VXLAN, NetBox, containerlab, pytest, Robot Framework</p>
-        <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
-      </article>
     </section>
 
     <section class="block" id="parcours" data-cmd="parcours">
@@ -82,7 +82,8 @@
       <ol class="gitlog">
         <li><span class="sha">04/2026</span><div><b>Co-fondateur technique, Haltere Ego</b><p>Application de suivi de musculation en bêta, conteneurisée et hébergée chez OVH. Je la fais évoluer à partir des retours des bêta-testeurs.</p></div></li>
         <li><span class="sha">11/2024</span><div><b>Ingénieur chercheur en sécurité Kubernetes, CNAM</b><p>Architecture de sécurité adaptative, de la détection à l'action : une réponse en 0,9 s au lieu d'environ 50 minutes à la main.</p></div></li>
-        <li><span class="sha">04/2022</span><div><b>Administrateur systèmes et réseaux, Redpill</b><p>CI/CD avec GitLab CI et Jenkins pour la plateforme Ermes, déploiements Ansible et Terraform, production AWS, et un VPN pour 80 personnes mis en place en deux semaines sans coupure.</p></div></li>
+        <li><span class="sha">04/2022</span><div><b>Administrateur systèmes et réseaux, Redpill</b><p>Administration des serveurs de production Linux et AWS, supervision avec Prometheus. Conception et déploiement d'un VPN OpenVPN pour 80 personnes en deux semaines, lors d'un déménagement, sans coupure. Gestion des accès : comptes VPN, secrets HashiCorp Vault, droits des bases de données. Automatisation avec Ansible, Terraform, GitLab CI et Jenkins.</p></div></li>
+        <li><span class="sha">06/2020</span><div><b>Stage DSI, Mairie de Saint-Ouen</b><p>Systèmes et téléphonie IP : Active Directory, Azure AD, postes et lignes IP.</p></div></li>
         <li><span class="sha">2020</span><div><b>Formation</b><p>Master Réseaux et Objets Connectés (CNAM), licence professionnelle ASSR, DUT Réseaux et Télécommunications, Cisco CCNA 2.</p></div></li>
       </ol>
     </section>
@@ -90,24 +91,26 @@
     <section class="block" id="stack" data-cmd="stack">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">cat stack.yaml</span></p>
       <dl class="yaml">
-        <dt>cloud_devops:</dt><dd>Kubernetes, Docker, Helm, Argo CD, Terraform, Ansible, GitLab CI, Jenkins, GitHub Actions, AWS</dd>
-        <dt>securite:</dt><dd>Falco, KubeArmor, Kyverno, Trivy, HashiCorp Vault, segmentation réseau</dd>
-        <dt>supervision:</dt><dd>Prometheus, Grafana, ELK, Zabbix</dd>
-        <dt>systemes:</dt><dd>Linux (Debian, Ubuntu), Windows, Active Directory, VMware</dd>
-        <dt>reseaux:</dt><dd>TCP/IP, VLAN, BGP, OSPF, EVPN-VXLAN, VPN</dd>
-        <dt>scripts:</dt><dd>Python, Bash, PowerShell</dd>
+        <dt>reseaux:</dt><dd>TCP/IP, routage et commutation, VLAN, BGP, OSPF, EVPN-VXLAN, VPN (OpenVPN), téléphonie IP</dd>
+        <dt>systemes:</dt><dd>Linux (Debian, Ubuntu), Windows Server, Active Directory, Azure AD, VMware</dd>
+        <dt>securite:</dt><dd>segmentation réseau, Zero Trust, HashiCorp Vault, Falco, KubeArmor, Kyverno, Trivy</dd>
+        <dt>supervision:</dt><dd>Prometheus, Grafana, ELK, Zabbix, Nagios</dd>
+        <dt>automatisation:</dt><dd>Ansible, Terraform, Python, Bash, PowerShell, GitLab CI, Jenkins</dd>
+        <dt>conteneurs_cloud:</dt><dd>Docker, Kubernetes, AWS</dd>
         <dt>langues:</dt><dd>français, anglais (B2)</dd>
       </dl>
     </section>
 
     <section class="block" id="contact" data-cmd="contact">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">contact</span></p>
-      <p>Je cherche un poste d'ingénieur DevOps, SRE, systèmes ou réseaux en Île-de-France. Écrivez-moi, je réponds vite.</p>
+      <p>Je cherche un poste d'ingénieur systèmes, réseaux ou cybersécurité en Île-de-France. Écrivez-moi, je réponds vite.</p>
       <ul class="links">
         <li><span class="dim">mail</span> <a href="mailto:hayoub.mouffok@gmail.com">hayoub.mouffok@gmail.com</a></li>
         <li><span class="dim">linkedin</span> <a href="https://www.linkedin.com/in/hayoub-mouffok-47256b214" rel="noopener">hayoub-mouffok</a></li>
         <li><span class="dim">github</span> <a href="https://github.com/HayoubMouffok" rel="noopener">HayoubMouffok</a></li>
-        <li><span class="dim">cv</span> <a href="assets/CV_Hayoub_Mouffok.pdf" download>CV_Hayoub_Mouffok.pdf</a></li>
+        <li><span class="dim">cv</span> <a href="assets/CV_Hayoub_Mouffok_Reseaux.pdf" download>réseaux</a></li>
+        <li><span class="dim">cv</span> <a href="assets/CV_Hayoub_Mouffok_Systemes.pdf" download>systèmes</a></li>
+        <li><span class="dim">cv</span> <a href="assets/CV_Hayoub_Mouffok_Securite.pdf" download>cybersécurité</a></li>
       </ul>
     </section>
 
@@ -138,6 +141,6 @@
   </form>
 </div>
 
-<footer class="foot">Site statique, sans dépendance. Chaque push est validé par GitHub Actions (HTML, liens) puis déployé par Netlify. <a href="https://github.com/HayoubMouffok/portfolio" rel="noopener">Code source</a></footer>
+<footer class="foot">Site statique, sans dépendance, servi avec des en-têtes de sécurité stricts (CSP, HSTS). Chaque modification est vérifiée automatiquement puis déployée par Netlify. <a href="https://github.com/HayoubMouffok/portfolio" rel="noopener">Code source</a></footer>
 </body>
 </html>
