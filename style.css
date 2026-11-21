@@ -69,7 +69,7 @@ caption{text-align:left;color:var(--dim);font-size:13px;padding-bottom:8px}
 th{text-align:left;font-weight:600;color:var(--dim);border-bottom:1px dashed var(--rule);padding:6px 14px 6px 0}
 td{padding:6px 14px 6px 0;border-bottom:1px dashed rgba(34,50,79,.6)}
 td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
-.demo{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;margin:12px 0 14px;background:#181a1f}
+.demo{display:block;width:100%;max-width:900px;height:auto;border:1px solid var(--rule);border-radius:6px;margin:12px 0 14px;background:#181a1f}
 
 .gitlog{list-style:none;margin:0;padding:0}
 .gitlog li{display:grid;grid-template-columns:9ch 1fr;gap:16px;margin-bottom:18px}
@@ -116,7 +116,7 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
 }
 
 .diagram{margin:16px 0 14px;padding:14px;border:1px solid var(--rule);border-radius:6px;background:#0d1628}
-.diagram svg{display:block;width:100%;height:auto;font-family:"Plex Mono",ui-monospace,monospace}
+.diagram svg{display:block;width:100%;max-width:760px;margin:0 auto;height:auto;font-family:"Plex Mono",ui-monospace,monospace}
 .diagram figcaption{color:var(--dim);font-size:13.5px;margin-top:10px;max-width:72ch}
 .diagram .lnk line{stroke:#3a4b6d;stroke-width:1.5}
 .diagram .tunnel{fill:none;stroke:var(--ok);stroke-width:2;stroke-dasharray:6 6}
@@ -168,7 +168,7 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
 .logo{margin:2px 0 0;font:600 17px/1.25 "Plex Mono",ui-monospace,monospace;color:var(--amber);
   text-shadow:0 0 10px rgba(255,179,71,.35)}
 .sw{display:inline-block;width:22px;height:12px;margin-right:4px;border-radius:2px;vertical-align:middle}
-.sw.a{background:var(--amber)}.sw.b{background:var(--link)}.sw.c{background:var(--ok)}.sw.d{background:#e86a5c}
+
 .info{display:grid;grid-template-columns:max-content 1fr;gap:3px 18px;margin:0;font-size:14.5px}
 .info dt{color:var(--link)}
 .info dt::after{content:":";color:var(--dim)}
@@ -204,29 +204,10 @@ td.ok{font-family:"VT323",monospace;font-size:24px;line-height:1}
   .pane .live{display:none}
 }
 
-/* --- Trois mini-panneaux : réseau, cloud, cyber --- */
-.panes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 22px}
-.mini{border:1px solid var(--rule);border-radius:8px;background:rgba(10,18,34,.75);padding:12px 14px;font-size:12.5px;display:flex;flex-direction:column;gap:10px;min-height:150px}
-.mini-t{color:var(--dim)}
-.mini-t b{font-weight:600;margin-right:6px}
-.mini.net .mini-t b{color:var(--link)} .mini.cloud .mini-t b{color:var(--amber)} .mini.cyber .mini-t b{color:#ff8a7a}
-.mini-f{color:var(--dim);margin-top:auto}
-.bars{display:flex;align-items:flex-end;gap:3px;height:58px}
-.bars i{flex:1;background:linear-gradient(180deg,var(--link),rgba(127,216,204,.25));border-radius:2px 2px 0 0;transition:height .9s ease}
-.pods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-.pods li{font-size:11px;text-align:center;padding:4px 0;border-radius:4px;background:rgba(155,227,143,.1);border:1px solid rgba(155,227,143,.35);color:var(--ok);overflow:hidden;text-overflow:ellipsis}
-.ids{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;font-size:11.5px;min-height:58px}
-.ids li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:on .4s ease-out}
-.ids .blk{color:#ff8a7a} .ids .alw{color:var(--dim)}
-
-/* Étiquettes de domaine */
-.dom{display:inline-block;font-size:11px;line-height:1;padding:3px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;border:1px solid}
-.d-net{color:var(--link);border-color:rgba(127,216,204,.45)}
-.d-cloud{color:var(--amber);border-color:rgba(255,179,71,.45)}
-.d-sec{color:#ff8a7a;border-color:rgba(255,138,122,.45)}
-.d-sys{color:#b9a7ff;border-color:rgba(185,167,255,.45)}
-.pane .dom:first-of-type{margin-left:10px}
-.gitlog b .dom,.gitlog .dom{font-weight:400}
+/* Couleurs de domaine, en touches discrètes */
+:root{--c-net:#7fd8cc;--c-cloud:#ffb347;--c-sec:#ff8a7a;--c-sys:#b9a7ff}
+.info dt.c-net{color:var(--c-net)} .info dt.c-cloud{color:var(--c-cloud)} .info dt.c-sec{color:var(--c-sec)} .info dt.c-sys{color:var(--c-sys)}
+.sw.a{background:var(--c-cloud)}.sw.b{background:var(--c-net)}.sw.c{background:var(--c-sys)}.sw.d{background:var(--c-sec)}
+.proj.acc-net{border-top:2px solid var(--c-net)} .proj.acc-sec{border-top:2px solid var(--c-sec)} .proj.acc-cloud{border-top:2px solid var(--c-cloud)}
 ::selection{background:rgba(255,179,71,.3);color:var(--paper)}
 
-@media (max-width:900px){.panes{grid-template-columns:1fr}.mini{min-height:0}}

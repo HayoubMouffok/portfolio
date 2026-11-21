@@ -46,32 +46,13 @@
         <dl class="info">
           <dt>rôle</dt><dd>Ingénieur DevOps, systèmes, réseaux et cybersécurité</dd>
           <dt>uptime</dt><dd>3 ans et demi en entreprise, Redpill puis CNAM</dd>
-          <dt>devops</dt><dd>GitLab CI, Jenkins, Terraform, Ansible, Kubernetes, AWS</dd>
-          <dt>réseau</dt><dd>BGP, OSPF, EVPN-VXLAN, VLAN, VPN</dd>
-          <dt>systèmes</dt><dd>Linux, Windows Server, Active Directory, VMware</dd>
-          <dt>sécurité</dt><dd>Falco, KubeArmor, Kyverno, Vault, Zero Trust</dd>
+          <dt class="c-cloud">devops</dt><dd>GitLab CI, Jenkins, Terraform, Ansible, Kubernetes, AWS</dd>
+          <dt class="c-net">réseau</dt><dd>BGP, OSPF, EVPN-VXLAN, VLAN, VPN</dd>
+          <dt class="c-sys">systèmes</dt><dd>Linux, Windows Server, Active Directory, VMware</dd>
+          <dt class="c-sec">sécurité</dt><dd>Falco, KubeArmor, Kyverno, Vault, Zero Trust</dd>
           <dt>diplôme</dt><dd>Master Réseaux et Objets Connectés (CNAM), CCNA 2</dd>
           <dt>statut</dt><dd class="ok"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</dd>
         </dl>
-      </div>
-      <div class="panes" aria-hidden="true">
-        <div class="mini net">
-          <div class="mini-t"><b>réseau</b> eth0 · trafic</div>
-          <div class="bars" id="bars"></div>
-          <div class="mini-f">BGP <span class="ok">4/4 Established</span> · VXLAN VNI 100 up</div>
-        </div>
-        <div class="mini cloud">
-          <div class="mini-t"><b>cloud</b> kubectl get pods</div>
-          <ul class="pods">
-            <li>web</li><li>api</li><li>falco</li><li>kubearmor</li><li>kyverno</li><li>prometheus</li><li>grafana</li><li>argocd</li>
-          </ul>
-          <div class="mini-f"><span class="ok">8/8 Running</span> · 0 restart</div>
-        </div>
-        <div class="mini cyber">
-          <div class="mini-t"><b>cyber</b> journal de détection</div>
-          <ol class="ids" id="ids"></ol>
-          <div class="mini-f"><span class="ok">0 intrusion active</span> · réponse en 30 ms</div>
-        </div>
       </div>
       <p class="role">J'automatise les infrastructures avec des pipelines CI/CD et de l'infrastructure as code, je les administre et je les sécurise, du routage au serveur.</p>
       <p class="hint">Tapez une commande, cliquez en bas de l'écran ou appuyez sur <kbd>1</kbd> à <kbd>4</kbd>. <kbd>help</kbd> liste tout.</p>
@@ -80,8 +61,8 @@
     <section class="block" id="projets" data-cmd="projets">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">ls projets/</span></p>
 
-      <article class="proj">
-        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/reseau-datacenter<span class="dom d-net">réseau</span><span class="live">● sur GitHub</span></div>
+      <article class="proj acc-net">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/reseau-datacenter<span class="live">● sur GitHub</span></div>
         <h2>Réseau datacenter automatisé</h2>
         <p>Le réseau d'un datacenter moderne en laboratoire : une architecture spine-leaf avec routage BGP et EVPN-VXLAN, redondance des chemins, et des configurations d'équipements générées depuis NetBox, l'inventaire de référence. Chaque modification est reconstruite puis testée automatiquement avant d'être appliquée.</p>
         <figure class="diagram">
@@ -109,8 +90,8 @@
         <p class="stack">FRRouting, EVPN-VXLAN, NetBox, containerlab, pytest, Robot Framework</p>
         <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
       </article>
-      <article class="proj">
-        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-reponse-intrusions<span class="dom d-sec">cyber</span><span class="dom d-cloud">cloud</span><span class="live">● sur GitHub</span></div>
+      <article class="proj acc-sec">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-reponse-intrusions<span class="live">● sur GitHub</span></div>
         <h2>Réponse automatique aux intrusions dans Kubernetes</h2>
         <p>Prolongement de mon mémoire de Master. Falco détecte une attaque dans un conteneur, un orchestrateur Python la classe selon MITRE ATT&amp;CK, puis applique une politique KubeArmor, NetworkPolicy ou Kyverno ciblée sur le seul pod attaqué. Aucune intervention humaine pour les menaces certaines, une validation humaine pour les autres.</p>
         <div class="table-wrap">
@@ -130,8 +111,8 @@
         <p><a href="https://github.com/HayoubMouffok/k8s-adaptive-security-orchestrator" rel="noopener">Lire le code et les résultats sur GitHub</a></p>
       </article>
 
-      <article class="proj">
-        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-gitops<span class="dom d-cloud">devops</span><span class="dom d-cloud">cloud</span><span class="live">● sur GitHub</span></div>
+      <article class="proj acc-cloud">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-gitops<span class="live">● sur GitHub</span></div>
         <h2>Plateforme Kubernetes GitOps</h2>
         <p>Terraform installe Argo CD, qui déploie depuis Git l'application, l'accès HTTPS, la supervision et les règles de sécurité. Chaque modification est testée avant d'arriver sur le cluster.</p>
         <figure class="diagram">
@@ -163,10 +144,10 @@
     <section class="block" id="parcours" data-cmd="parcours">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">git log parcours</span></p>
       <ol class="gitlog">
-        <li><span class="sha">04/2026</span><div><b>Co-fondateur technique, Haltere Ego</b> <span class="dom d-cloud">devops</span><p>Application de suivi de musculation en bêta, conteneurisée et hébergée chez OVH. Je la fais évoluer à partir des retours des bêta-testeurs.</p></div></li>
-        <li><span class="sha">11/2024</span><div><b>Ingénieur chercheur en sécurité Kubernetes, CNAM</b> <span class="dom d-sec">cyber</span><span class="dom d-cloud">cloud</span><p>Architecture de sécurité adaptative, de la détection à l'action : une réponse en 0,9 s au lieu d'environ 50 minutes à la main.</p></div></li>
-        <li><span class="sha">04/2022</span><div><b>Administrateur systèmes et réseaux, Redpill</b> <span class="dom d-net">réseau</span><span class="dom d-sys">systèmes</span><span class="dom d-cloud">devops</span><p>Administration des serveurs de production Linux et AWS, supervision avec Prometheus. Conception et déploiement d'un VPN OpenVPN pour 80 personnes en deux semaines, lors d'un déménagement, sans coupure. Gestion des accès : comptes VPN, secrets HashiCorp Vault, droits des bases de données. Automatisation avec Ansible, Terraform, GitLab CI et Jenkins.</p></div></li>
-        <li><span class="sha">06/2020</span><div><b>Stage DSI, Mairie de Saint-Ouen</b> <span class="dom d-sys">systèmes</span><span class="dom d-net">réseau</span><p>Systèmes et téléphonie IP : Active Directory, Azure AD, postes et lignes IP.</p></div></li>
+        <li><span class="sha">04/2026</span><div><b>Co-fondateur technique, Haltere Ego</b><p>Application de suivi de musculation en bêta, conteneurisée et hébergée chez OVH. Je la fais évoluer à partir des retours des bêta-testeurs.</p></div></li>
+        <li><span class="sha">11/2024</span><div><b>Ingénieur chercheur en sécurité Kubernetes, CNAM</b><p>Architecture de sécurité adaptative, de la détection à l'action : une réponse en 0,9 s au lieu d'environ 50 minutes à la main.</p></div></li>
+        <li><span class="sha">04/2022</span><div><b>Administrateur systèmes et réseaux, Redpill</b><p>Administration des serveurs de production Linux et AWS, supervision avec Prometheus. Conception et déploiement d'un VPN OpenVPN pour 80 personnes en deux semaines, lors d'un déménagement, sans coupure. Gestion des accès : comptes VPN, secrets HashiCorp Vault, droits des bases de données. Automatisation avec Ansible, Terraform, GitLab CI et Jenkins.</p></div></li>
+        <li><span class="sha">06/2020</span><div><b>Stage DSI, Mairie de Saint-Ouen</b><p>Systèmes et téléphonie IP : Active Directory, Azure AD, postes et lignes IP.</p></div></li>
         <li><span class="sha">2020</span><div><b>Formation</b><p>Master Réseaux et Objets Connectés (CNAM), licence professionnelle ASSR, DUT Réseaux et Télécommunications, Cisco CCNA 2.</p></div></li>
       </ol>
     </section>

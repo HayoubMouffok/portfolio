@@ -143,33 +143,6 @@
   };
   tick(); setInterval(tick, 3000);
 
-  // Mini-panneaux : trafic réseau et journal de détection.
-  const bars = document.getElementById("bars");
-  const N = 22;
-  for (let i = 0; i < N; i++) { const b = document.createElement("i"); b.style.height = (25 + Math.random() * 60) + "%"; bars.append(b); }
-  const ids = document.getElementById("ids");
-  const events = [
-    ["blk", "BLOCK  185.220.101.4 → :22   brute force SSH"],
-    ["alw", "ALLOW  10.10.100.12 → :443  trafic légitime"],
-    ["blk", "DENY   pod/web exec sh       Kyverno"],
-    ["blk", "BLOCK  cat /etc/shadow       KubeArmor"],
-    ["alw", "ALLOW  host1 → host2         VXLAN 100"],
-    ["blk", "DROP   1.1.1.1:443 (C2)      NetworkPolicy"],
-    ["blk", "BLOCK  /tmp/scan exec        KubeArmor"],
-  ];
-  let ev = 0;
-  const pushEvent = () => {
-    const [cls, text] = events[ev++ % events.length];
-    const li = document.createElement("li"); li.className = cls; li.textContent = text;
-    ids.prepend(li);
-    while (ids.children.length > 4) ids.lastChild.remove();
-  };
-  for (let i = 0; i < 4; i++) pushEvent();
-  if (!reduce) {
-    setInterval(() => { const list = bars.children; for (let i = 0; i < list.length - 1; i++) list[i].style.height = list[i + 1].style.height; list[list.length - 1].style.height = (20 + Math.random() * 75) + "%"; }, 900);
-    setInterval(pushEvent, 2600);
-  }
-
   form.addEventListener("submit", e => { e.preventDefault(); const v = input.value; input.value = ""; run(v); });
   form.addEventListener("click", e => {
     const b = e.target.closest("button[data-run]");
