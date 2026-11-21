@@ -148,6 +148,12 @@
     const b = e.target.closest("button[data-run]");
     if (b) { run(b.dataset.run); input.focus({ preventScroll: true }); }
   });
+  const quick = ["projets", "parcours", "stack", "contact"];
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    const inField = document.activeElement === input && input.value !== "";
+    if (!inField && /^[1-4]$/.test(e.key)) { e.preventDefault(); run(quick[+e.key - 1]); }
+  });
   input.addEventListener("keydown", e => {
     if (e.key === "ArrowUp" && hIndex > 0) { hIndex--; input.value = history[hIndex]; e.preventDefault(); }
     if (e.key === "ArrowDown") { hIndex = Math.min(history.length, hIndex + 1); input.value = history[hIndex] || ""; e.preventDefault(); }

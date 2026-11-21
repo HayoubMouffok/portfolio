@@ -29,22 +29,40 @@
   <main id="log" class="log" aria-live="polite">
 
     <section class="block boot" id="boot" aria-label="Démarrage">
-      <p class="dim">Master Réseaux et Objets Connectés (CNAM), formation Cisco CCNA 2, 4 ans de CI/CD et d'infrastructure as code</p>
       <p class="dim">Dernière connexion : aujourd'hui, depuis l'Île-de-France</p>
     </section>
 
     <section class="block" id="whoami" data-cmd="whoami">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">whoami</span></p>
       <h1 class="name">Hayoub Mouffok</h1>
-      <p class="role">Ingénieur DevOps, systèmes, réseaux et cybersécurité. J'automatise les infrastructures avec des pipelines CI/CD et de l'infrastructure as code, je les administre et je les sécurise, du routage au serveur.</p>
-      <p class="status"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</p>
-      <p class="hint">Tapez une commande, ou cliquez sur l'une d'elles en bas de l'écran. <kbd>help</kbd> les liste toutes.</p>
+      <div class="fetch">
+<pre class="logo" aria-hidden="true"> _   _  __  __
+| | | ||  \/  |
+| |_| || |\/| |
+|  _  || |  | |
+|_| |_||_|  |_|
+
+ <span class="sw a"></span><span class="sw b"></span><span class="sw c"></span><span class="sw d"></span></pre>
+        <dl class="info">
+          <dt>rôle</dt><dd>Ingénieur DevOps, systèmes, réseaux et cybersécurité</dd>
+          <dt>uptime</dt><dd>3 ans et demi en entreprise, Redpill puis CNAM</dd>
+          <dt>devops</dt><dd>GitLab CI, Jenkins, Terraform, Ansible, Kubernetes, AWS</dd>
+          <dt>réseau</dt><dd>BGP, OSPF, EVPN-VXLAN, VLAN, VPN</dd>
+          <dt>systèmes</dt><dd>Linux, Windows Server, Active Directory, VMware</dd>
+          <dt>sécurité</dt><dd>Falco, KubeArmor, Kyverno, Vault, Zero Trust</dd>
+          <dt>diplôme</dt><dd>Master Réseaux et Objets Connectés (CNAM), CCNA 2</dd>
+          <dt>statut</dt><dd class="ok"><span class="led" aria-hidden="true"></span>Disponible immédiatement, en Île-de-France</dd>
+        </dl>
+      </div>
+      <p class="role">J'automatise les infrastructures avec des pipelines CI/CD et de l'infrastructure as code, je les administre et je les sécurise, du routage au serveur.</p>
+      <p class="hint">Tapez une commande, cliquez en bas de l'écran ou appuyez sur <kbd>1</kbd> à <kbd>4</kbd>. <kbd>help</kbd> liste tout.</p>
     </section>
 
     <section class="block" id="projets" data-cmd="projets">
       <p class="cmd"><span class="ps1">hayoub@k8s-lab:~$</span> <span class="c">ls projets/</span></p>
 
       <article class="proj">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/reseau-datacenter<span class="live">● sur GitHub</span></div>
         <h2>Réseau datacenter automatisé</h2>
         <p>Le réseau d'un datacenter moderne en laboratoire : une architecture spine-leaf avec routage BGP et EVPN-VXLAN, redondance des chemins, et des configurations d'équipements générées depuis NetBox, l'inventaire de référence. Chaque modification est reconstruite puis testée automatiquement avant d'être appliquée.</p>
         <figure class="diagram">
@@ -73,6 +91,7 @@
         <p><a href="https://github.com/HayoubMouffok/evpn-vxlan-netdevops" rel="noopener">Voir le projet sur GitHub</a></p>
       </article>
       <article class="proj">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-reponse-intrusions<span class="live">● sur GitHub</span></div>
         <h2>Réponse automatique aux intrusions dans Kubernetes</h2>
         <p>Prolongement de mon mémoire de Master. Falco détecte une attaque dans un conteneur, un orchestrateur Python la classe selon MITRE ATT&amp;CK, puis applique une politique KubeArmor, NetworkPolicy ou Kyverno ciblée sur le seul pod attaqué. Aucune intervention humaine pour les menaces certaines, une validation humaine pour les autres.</p>
         <div class="table-wrap">
@@ -93,6 +112,7 @@
       </article>
 
       <article class="proj">
+        <div class="pane"><span class="dots" aria-hidden="true"></span>~/projets/k8s-gitops<span class="live">● sur GitHub</span></div>
         <h2>Plateforme Kubernetes GitOps</h2>
         <p>Terraform installe Argo CD, qui déploie depuis Git l'application, l'accès HTTPS, la supervision et les règles de sécurité. Chaque modification est testée avant d'arriver sur le cluster.</p>
         <figure class="diagram">
@@ -183,10 +203,10 @@
     <input id="cmd" name="cmd" type="text" spellcheck="false" autocapitalize="off" placeholder="help">
     <button type="submit" class="sr">Exécuter</button>
     <div class="chips" role="group" aria-label="Commandes">
-      <button type="button" data-run="projets">projets</button>
-      <button type="button" data-run="parcours">parcours</button>
-      <button type="button" data-run="stack">stack</button>
-      <button type="button" data-run="contact">contact</button>
+      <button type="button" data-run="projets"><kbd>1</kbd>projets</button>
+      <button type="button" data-run="parcours"><kbd>2</kbd>parcours</button>
+      <button type="button" data-run="stack"><kbd>3</kbd>stack</button>
+      <button type="button" data-run="contact"><kbd>4</kbd>contact</button>
     </div>
   </form>
   <div class="statusbar" role="status" aria-label="État du laboratoire">
